@@ -1,172 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Apply — Aria Voss</title>
-<meta name="description" content="Apply to work together on your remote job search — takes about 3 minutes.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>David Song | Apply for Remote Career Coaching</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
 </head>
-<body>
+<body class="bg-slate-900 text-slate-100 antialiased selection:bg-indigo-500 selection:text-white">
 
-<nav class="site-nav">
-  <div class="wrap">
-    <a href="index.html" class="brand"><span class="brand-mark"></span> Aria Voss</a>
-    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="portfolio.html">Proof of Work</a></li>
-      <li><a href="apply.html" class="nav-cta active">Apply</a></li>
-    </ul>
-  </div>
-</nav>
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+        <span class="w-3 h-3 rounded-full bg-indigo-500"></span>
+        <span>FindMe<span class="text-indigo-400">Job</span></span>
+      </a>
 
-<header class="hero" style="padding-bottom: 40px;">
-  <div class="wrap">
-    <span class="stub-label">Booking form</span>
-    <h1>Book your seat.</h1>
-    <p class="hero-sub">Tell me about where you're at and where you want to go. I read every application myself and reply within 2 business days.</p>
-  </div>
-</header>
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="index.html#services" class="hover:text-white transition-colors">Services</a>
+        <a href="portfolio.html" class="hover:text-white transition-colors">Proof & Results</a>
+        <a href="about.html" class="hover:text-white transition-colors">About</a>
+        <a href="index.html#faq" class="hover:text-white transition-colors">FAQ</a>
+      </nav>
 
-<section class="section-tight" style="padding-top: 0;">
-  <div class="wrap" style="max-width: 720px;">
-
-    <!--
-      SETUP INSTRUCTIONS (delete this comment once configured):
-      1. Create a free form at https://formspree.io and verify the email
-         address you want applications sent to.
-      2. Copy your form endpoint, e.g. https://formspree.io/f/abcd1234
-      3. Replace YOUR_FORM_ID below with that ID.
-    -->
-    <form
-      id="applyForm"
-      class="form-pass"
-      action="https://formspree.io/f/YOUR_FORM_ID"
-      method="POST"
-    >
-      <span class="stub-label">Passenger details</span>
-      <h2>Client application</h2>
-
-      <div class="field-row">
-        <div class="field">
-          <label for="name">Full name</label>
-          <input type="text" id="name" name="name" required autocomplete="name">
-        </div>
-        <div class="field">
-          <label for="email">Email address</label>
-          <input type="email" id="email" name="email" required autocomplete="email">
-        </div>
+      <div class="hidden sm:flex items-center">
+        <a href="#apply-form" class="inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-semibold text-sm bg-indigo-600 text-white hover:bg-indigo-500 transition-all shadow-sm shadow-indigo-600/30">
+          Book Strategy Call
+        </a>
       </div>
 
-      <div class="field-row">
-        <div class="field">
-          <label for="location">Current location (city, country)</label>
-          <input type="text" id="location" name="location" required>
-        </div>
-        <div class="field">
-          <label for="linkedin">LinkedIn or portfolio URL</label>
-          <input type="url" id="linkedin" name="linkedin_or_portfolio" placeholder="https://">
-        </div>
-      </div>
-
-      <div class="field">
-        <label for="role">Target role(s)</label>
-        <input type="text" id="role" name="target_role" placeholder="e.g. Senior Product Designer, remote" required>
-      </div>
-
-      <div class="field-row">
-        <div class="field">
-          <label for="experience">Years of experience</label>
-          <select id="experience" name="years_experience" required>
-            <option value="">Select one</option>
-            <option>0–2 years</option>
-            <option>3–5 years</option>
-            <option>6–10 years</option>
-            <option>10+ years</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="stage">Where are you in your search?</label>
-          <select id="stage" name="search_stage" required>
-            <option value="">Select one</option>
-            <option>Not started yet</option>
-            <option>Applying, few or no responses</option>
-            <option>Getting interviews, no offers yet</option>
-            <option>Have an offer, need negotiation help</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="field-row">
-        <div class="field">
-          <label for="timeline">When do you want to start working?</label>
-          <select id="timeline" name="timeline" required>
-            <option value="">Select one</option>
-            <option>Immediately</option>
-            <option>Within 2 weeks</option>
-            <option>Within a month</option>
-            <option>Just exploring for now</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="budget">Budget range for services</label>
-          <select id="budget" name="budget_range">
-            <option value="">Prefer not to say yet</option>
-            <option>Under $200</option>
-            <option>$200–$500</option>
-            <option>$500–$1,000</option>
-            <option>$1,000+</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="field">
-        <label for="message">Anything else I should know?</label>
-        <textarea id="message" name="message" placeholder="Your background, what's stalled so far, or specific companies you're targeting."></textarea>
-      </div>
-
-      <input type="hidden" name="_subject" value="New client application — Aria Voss site">
-
-      <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; margin-top: 8px;">
-        Submit application →
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" aria-label="Toggle navigation menu" class="md:hidden p-2 text-slate-400 hover:text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
       </button>
-      <p class="form-footer-note">Submitting sends your details directly to my inbox via Formspree. No account or payment required to apply.</p>
-    </form>
-
-    <div id="formSuccess" class="pass" style="display:none; margin-top: 32px;">
-      <div class="pass-main">
-        <span class="stub-label">Confirmed</span>
-        <div class="pass-route">
-          <span class="city">RECEIVED</span>
-          <span class="arrow">✈</span>
-          <span class="city">REVIEW</span>
-        </div>
-        <p>Thanks — your application is in. I read every submission myself and reply within 2 business days.</p>
-      </div>
-      <div class="pass-stub">
-        <span class="stub-label">Status</span>
-        <span class="stub-code">OK</span>
-      </div>
     </div>
 
-  </div>
-</section>
+    <!-- Mobile Nav Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 pt-2 pb-6 space-y-3">
+      <a href="index.html#services" class="block text-slate-300 hover:text-white text-sm font-medium py-1">Services</a>
+      <a href="portfolio.html" class="block text-slate-300 hover:text-white text-sm font-medium py-1">Proof & Results</a>
+      <a href="about.html" class="block text-slate-300 hover:text-white text-sm font-medium py-1">About</a>
+      <a href="index.html#faq" class="block text-slate-300 hover:text-white text-sm font-medium py-1">FAQ</a>
+      <a href="#apply-form" class="block text-center mt-4 w-full py-2.5 rounded-lg font-semibold text-sm bg-indigo-600 text-white hover:bg-indigo-500">
+        Book Strategy Call
+      </a>
+    </div>
+  </header>
 
-<footer class="site-footer">
-  <div class="wrap">
-    <span class="subtle-note">© 2026 Aria Voss. Helping people work remotely, from anywhere.</span>
-    <ul class="footer-links">
-      <li><a href="about.html">About</a></li>
-      <li><a href="portfolio.html">Proof of Work</a></li>
-      <li><a href="apply.html">Apply</a></li>
-    </ul>
-  </div>
-</footer>
+  <!-- Application Intake Form Section -->
+  <section id="apply-form" class="py-16 md:py-24">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="bg-slate-800/60 border border-slate-700/80 rounded-3xl p-8 sm:p-12 shadow-2xl backdrop-blur-sm">
+        <div class="max-w-2xl mb-8">
+          <span class="text-xs font-bold uppercase tracking-widest text-indigo-400 block mb-2">Client Application</span>
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">Book Your Remote Career Strategy Session</h1>
+          <p class="text-slate-300 text-sm leading-relaxed">Fill out the form below to apply for 1-on-1 coaching and discuss how to position your profile for international remote roles.</p>
+        </div>
 
-<script src="js/main.js"></script>
+        <!-- Formspree Form with your Form Endpoint -->
+        <form action="https://formspree.io/f/mojgbqez" method="POST" class="space-y-6">
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Full Name</label>
+              <input type="text" name="name" required placeholder="John Doe" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/50 transition-all">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Email Address</label>
+              <input type="email" name="email" required placeholder="john@example.com" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/50 transition-all">
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Current Role / Industry</label>
+              <input type="text" name="current_role" required placeholder="e.g. Software Developer, Data Analyst" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/50 transition-all">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Primary Goal</label>
+              <select name="goal" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/50 transition-all">
+                <option value="Resume & Profile Optimization">Resume & Profile Optimization</option>
+                <option value="Securing Interview Calls">Securing Interview Calls</option>
+                <option value="Interview Coaching & Mock Practice">Interview Coaching & Mock Practice</option>
+                <option value="Full End-to-End Placement Package">Full End-to-End Placement Package</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Target Salary Bracket</label>
+            <select name="target_salary" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/50 transition-all">
+              <option value="$50k - $75k USD">$50,000 – $75,000 USD / Year</option>
+              <option value="$75k - $100k USD">$75,000 – $100,000 USD / Year</option>
+              <option value="$100k - $150k+ USD">$100,000 – $150,000+ USD / Year</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Biggest Challenge Right Now</label>
+            <textarea name="challenge" rows="4" placeholder="Describe what is stopping you from securing remote interviews..." class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/50 transition-all"></textarea>
+          </div>
+
+          <button type="submit" class="w-full py-4 rounded-xl font-semibold bg-indigo-600 hover:bg-indigo-500 text-white transition-all shadow-lg shadow-indigo-600/25">
+            Submit Application
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 border-t border-slate-800 text-center text-xs text-slate-500">
+    <p>© 2026 David Song | FindMeJob. All rights reserved.</p>
+  </footer>
+
+  <!-- Script for Mobile Navigation -->
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
 </body>
 </html>
