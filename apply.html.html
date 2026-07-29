@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply — Aria Voss</title>
+<meta name="description" content="Apply to work together on your remote job search — takes about 3 minutes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="brand-mark"></span> Aria Voss</a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="portfolio.html">Proof of Work</a></li>
+      <li><a href="apply.html" class="nav-cta active">Apply</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" style="padding-bottom: 40px;">
+  <div class="wrap">
+    <span class="stub-label">Booking form</span>
+    <h1>Book your seat.</h1>
+    <p class="hero-sub">Tell me about where you're at and where you want to go. I read every application myself and reply within 2 business days.</p>
+  </div>
+</header>
+
+<section class="section-tight" style="padding-top: 0;">
+  <div class="wrap" style="max-width: 720px;">
+
+    <!--
+      SETUP INSTRUCTIONS (delete this comment once configured):
+      1. Create a free form at https://formspree.io and verify the email
+         address you want applications sent to.
+      2. Copy your form endpoint, e.g. https://formspree.io/f/abcd1234
+      3. Replace YOUR_FORM_ID below with that ID.
+    -->
+    <form
+      id="applyForm"
+      class="form-pass"
+      action="https://formspree.io/f/YOUR_FORM_ID"
+      method="POST"
+    >
+      <span class="stub-label">Passenger details</span>
+      <h2>Client application</h2>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="location">Current location (city, country)</label>
+          <input type="text" id="location" name="location" required>
+        </div>
+        <div class="field">
+          <label for="linkedin">LinkedIn or portfolio URL</label>
+          <input type="url" id="linkedin" name="linkedin_or_portfolio" placeholder="https://">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="role">Target role(s)</label>
+        <input type="text" id="role" name="target_role" placeholder="e.g. Senior Product Designer, remote" required>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="experience">Years of experience</label>
+          <select id="experience" name="years_experience" required>
+            <option value="">Select one</option>
+            <option>0–2 years</option>
+            <option>3–5 years</option>
+            <option>6–10 years</option>
+            <option>10+ years</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="stage">Where are you in your search?</label>
+          <select id="stage" name="search_stage" required>
+            <option value="">Select one</option>
+            <option>Not started yet</option>
+            <option>Applying, few or no responses</option>
+            <option>Getting interviews, no offers yet</option>
+            <option>Have an offer, need negotiation help</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="timeline">When do you want to start working?</label>
+          <select id="timeline" name="timeline" required>
+            <option value="">Select one</option>
+            <option>Immediately</option>
+            <option>Within 2 weeks</option>
+            <option>Within a month</option>
+            <option>Just exploring for now</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="budget">Budget range for services</label>
+          <select id="budget" name="budget_range">
+            <option value="">Prefer not to say yet</option>
+            <option>Under $200</option>
+            <option>$200–$500</option>
+            <option>$500–$1,000</option>
+            <option>$1,000+</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="message">Anything else I should know?</label>
+        <textarea id="message" name="message" placeholder="Your background, what's stalled so far, or specific companies you're targeting."></textarea>
+      </div>
+
+      <input type="hidden" name="_subject" value="New client application — Aria Voss site">
+
+      <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; margin-top: 8px;">
+        Submit application →
+      </button>
+      <p class="form-footer-note">Submitting sends your details directly to my inbox via Formspree. No account or payment required to apply.</p>
+    </form>
+
+    <div id="formSuccess" class="pass" style="display:none; margin-top: 32px;">
+      <div class="pass-main">
+        <span class="stub-label">Confirmed</span>
+        <div class="pass-route">
+          <span class="city">RECEIVED</span>
+          <span class="arrow">✈</span>
+          <span class="city">REVIEW</span>
+        </div>
+        <p>Thanks — your application is in. I read every submission myself and reply within 2 business days.</p>
+      </div>
+      <div class="pass-stub">
+        <span class="stub-label">Status</span>
+        <span class="stub-code">OK</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="subtle-note">© 2026 Aria Voss. Helping people work remotely, from anywhere.</span>
+    <ul class="footer-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="portfolio.html">Proof of Work</a></li>
+      <li><a href="apply.html">Apply</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
